@@ -8,6 +8,11 @@ export default class extends Interface {
 
     async renderHTML() {
         const user = await this.getUserById();
+        
+        if(Object.keys(user).length==0){
+          return   window.location.href = '/404'
+        }
+
         let address = '';
         let company = '';
         this.setTitle(user.name);

@@ -9,6 +9,11 @@ export default class extends Interface {
 
     async renderHTML() {
         const posts  = await this.getUserPostsById();
+
+        if(Object.keys(posts).length==0){
+          return   window.location.href = '/404'
+        }
+        
         let postsList = '';
         posts.forEach(post => {
             postsList+=`
